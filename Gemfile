@@ -38,6 +38,7 @@ gem 'rails-controller-testing'
 # Added by Joshua
 gem 'webpacker', '~> 4.x'
 gem 'react-rails'
+gem "rubyzip", ">= 1.3.0"
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
