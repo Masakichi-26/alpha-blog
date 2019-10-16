@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   before_save { self.email = email.downcase }
+  # before_save :set_color
   has_many :articles, dependent: :destroy
   validates :username, presence: true, uniqueness: { case_sensitive: false }, 
             length: { minimum: 3, maximum: 25 }
@@ -7,5 +8,13 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 105 },
             uniqueness: { case_sensitive: false },
             format: { with: VALID_EMAIL_REGEX }
+  # VALID_COLOR_REGEX = /\A#{1}([0-9a-f]{6}|([0-9a-f]{1})\2{2})\z/i
+
+  # attr_accessor :color_string
+  # validates :color_string, format: {with: VALID_COLOR_REGEX }
   has_secure_password
+
+  # def set_color
+  #   self.color = color_string
+  # end
 end
